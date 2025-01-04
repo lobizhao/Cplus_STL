@@ -1,12 +1,9 @@
-//
-// Created by admin on 2024/12/4.
-//
-
 #ifndef CPLUS_STL_MY_STACK_H
 #define CPLUS_STL_MY_STACK_H
+
 #include <iostream>
 #include <string>
-#include <vector>
+
 /*( for stack function contains
  *  push
  *  top
@@ -14,51 +11,58 @@
  *  empty
  *  size
  */
-using namespace std;
-
 template <typename T>
-
 class my_stack {
 private:
-    vector<T> elements;
+    int idx;
+    int arrSize;
+    //dynamic new array
+    T* arr;
 public:
-    my_stack();
-    void push(T ele);
-    size_t size();
-    T top();
-    void pop();
-    bool isEmpty();
+    my_stack():idx(-1), arrSize(2),arr(new T[arrSize]){}
+    ~my_stack(){
+        delete[] arr;
+    }
 
+    void push(T ele){
+        if(idx == arrSize-1){
+            arrSize *= 2;
+            //update size, resize process
+            T* newArr = new T[arrSize];
+            for(int i=0; i<idx; i++){
+                newArr[i] = arr[i];
+            }
+
+            delete[] arr;
+            arr = newArr;
+        }
+
+        idx += 1;
+        arr[idx] = ele;
+    }
+
+    size_t size(){
+        return idx+1;
+    }
+    T top(){
+        if(isEmpty()){
+            throw std::runtime_error("Stack is empty");
+        }
+        return arr[idx];
+
+    }
+    void pop(){
+        if(isEmpty()){
+            std::cout <<"Nothing in stack" << std::endl;
+        }else{
+            T theTpo = arr[idx];
+            idx -= 1;
+            std::cout << theTpo << " removed" << std::endl;
+        }
+    }
+    bool isEmpty(){
+        return idx == -1;
+    }
 };
-
-template <typename T>
-class MinStack{
-private:
-    vector<T> elements;
-    vector<T> minStack;
-public:
-    MinStack();
-    void push(T ele);
-    void pop();
-    T top();
-    T getMin();
-
-
-};
-
-template <typename T>
-class MaxStack{
-private:
-    vector<T> elements;
-    vector<T> maxStack;
-public:
-    MaxStack();
-    void push(T ele);
-    void pop();
-    T top();
-    T peekMax();
-    T popMax();
-};
-
 
 #endif //CPLUS_STL_MY_STACK_H

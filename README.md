@@ -1,5 +1,11 @@
 # C++_STL
-1. stack 
+1. stack
+
+        push 
+        size
+        top
+        pop
+        isEmpty
 2. vector
 3. queue
 

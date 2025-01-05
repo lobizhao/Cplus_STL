@@ -1,6 +1,7 @@
 #include <iostream>
 #include "my_stack.h"
 
+using namespace std;
 int main() {
     my_stack<int> intStack;
     intStack.push(1);
@@ -9,7 +10,19 @@ int main() {
     intStack.push(3);
     intStack.top();
     intStack.pop();
-    intStack.isEmpty();
     intStack.size();
+    intStack.isEmpty();
+
+
+    my_stack<string> strStack;
+    strStack.push("Hello");
+    strStack.push("World");
+    strStack.emplace(3,"Ok ");
+
+    strStack.pop();
+    strStack.size();
+    strStack.pop();
+    strStack.isEmpty();
+
     return 0;
 }

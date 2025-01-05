@@ -40,16 +40,37 @@ public:
         arr[idx] = ele;
     }
 
+    void emplace(int num, T ele){
+        if(idx == arrSize -1){
+            arrSize += num;
+            arrSize*= 2;
+            //update size, resize process
+            T* newArr = new T[arrSize];
+            for(int i=0; i<idx; i++){
+                newArr[i] = arr[i];
+            }
+            delete[] arr;
+            arr = newArr;
+        }
+        for(int i=0; i<num; i++){
+            idx += 1;
+            arr[idx] = ele;
+        }
+    }
+
     size_t size(){
+        std::cout << "size is: " <<idx +1 << std::endl;
         return idx+1;
     }
+
     T top(){
         if(isEmpty()){
             throw std::runtime_error("Stack is empty");
         }
+        std::cout << "Top isL: " << arr[idx] << std::endl;
         return arr[idx];
-
     }
+
     void pop(){
         if(isEmpty()){
             std::cout <<"Nothing in stack" << std::endl;
@@ -59,7 +80,13 @@ public:
             std::cout << theTpo << " removed" << std::endl;
         }
     }
+
     bool isEmpty(){
+        if(idx == -1){
+            std::cout << "true" << std::endl;
+        }else{
+            std::cout<< "false" << std::endl;
+        }
         return idx == -1;
     }
 };

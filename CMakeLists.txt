@@ -3,4 +3,5 @@ project(Cplus_STL)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Cplus_STL main.cpp)
+add_executable(Cplus_STL main.cpp
+        my_vector.h)

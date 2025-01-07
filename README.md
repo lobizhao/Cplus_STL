@@ -1,5 +1,5 @@
 # C++_STL
-1. stack
+1. Stack
 
          push() 
          emplace()
@@ -8,7 +8,7 @@
          pop()
          isEmpty()
      
-2. vector
+2. Vector
          
          push_back()
          inset()
@@ -22,5 +22,16 @@
          pop_back()
          append()
 
-3. queue
+3. Queue
+      
+         push()
+         isEmpty()
+         size()
+         front()
+         back()
+         pop()
+         
+4. Priority Queue
+5. Deque
+
 

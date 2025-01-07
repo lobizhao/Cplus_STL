@@ -1,5 +1,6 @@
 #include <iostream>
 #include "my_stack.h"
+#include "my_vector.h"
 
 using namespace std;
 int main() {
@@ -23,6 +24,8 @@ int main() {
     strStack.isEmpty();
 
     //my_vector test
+    my_vector<int> inVector;
+
 
     return 0;
 }

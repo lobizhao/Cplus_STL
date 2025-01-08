@@ -22,7 +22,7 @@
          pop_back()
          append()
 
-3. Queue
+3. Queue - double pointer/ front and rear
       
          push()
          isEmpty()
@@ -30,6 +30,8 @@
          front()
          back()
          pop()
+         clear()
+         
          
 4. Priority Queue
 5. Deque

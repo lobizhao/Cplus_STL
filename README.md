@@ -34,6 +34,12 @@
          
          
 4. Priority Queue
-5. Deque
+         
+         push()
+         top()
+         pop()
+         isEmpty()
+         size()
+
 
 
